@@ -1,0 +1,20 @@
+name: MARKET MOOD Dashboard
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Validate dashboard files
+        shell: bash
+        run: |
+          test -f index.html
+          echo 'MARKET MOOD dashboard file found.'
+          echo 'No market data was modified.'
